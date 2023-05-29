@@ -2,7 +2,6 @@ var assert = require('assert');
 var JsBarcode = require('../../bin/JsBarcode.js');
 var Canvas = require("canvas");
 
-
 describe('CODE128', function() {
   it('should be able to include the encoder(s)', function () {
     CODE128 = JsBarcode.getModule("CODE128");
@@ -38,6 +37,13 @@ describe('CODE128', function() {
   it('should remove unprintable characters', function () {
     var enc = new CODE128C("A\n\x00B \x04\x10\x1FC", {});
     assert.equal("AB C", enc.encode().text);
+  });
+  
+  it('should encode CODE128 Fix', function () {
+    var CODE128Fix = JsBarcode.getModule("CODE128Fix");
+    var enc = new CODE128Fix('215014 - 00001', {})
+    var encoded = enc.encode().data
+    assert.equal("1101001000010111011110110111001001100010111010011001110101111011101101100110010011011100110110011001011101111011011001100110110011001011110111010011100110111011000101100011101011", encoded)
   });
 
   it('should encode CODE128 (auto)', function () {
