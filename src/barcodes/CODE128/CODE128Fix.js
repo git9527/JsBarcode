@@ -27,7 +27,7 @@ class CODE128Fix extends CODE128 {
 	}
 
 	valid() {
-		return (new RegExp(`^${C_CHARS}+$`)).test(this.data);
+		return true;
 	}
 }
 

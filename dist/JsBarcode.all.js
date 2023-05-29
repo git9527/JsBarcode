@@ -1120,7 +1120,7 @@ var CODE128Fix = function (_CODE) {
 	_createClass(CODE128Fix, [{
 		key: 'valid',
 		value: function valid() {
-			return new RegExp('^' + _constants.C_CHARS + '+$').test(this.data);
+			return true;
 		}
 	}]);
 
